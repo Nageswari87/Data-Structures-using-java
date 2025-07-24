@@ -1,0 +1,45 @@
+//MajorityElement Brute force approach
+package DSA;
+import java.util.*;
+public class MajorityElement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter size of array:");
+		int n=sc.nextInt();
+		System.out.println("Enter array elements:");
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		HashMap<Integer,Integer>map=new HashMap<>();
+		Set<Integer>set=new HashSet<>();
+		for(int i=0;i<n;i++)
+		{
+			int target=arr[i];
+			if(map.containsKey(target))
+			{
+				map.put(target,map.get(target)+1);
+			}
+			else
+			{
+				map.put(target,1);
+			}
+			
+		}
+		int res=n/3;
+		for(int i=0;i<n;i++)
+		{
+			if(map.get(arr[i])>res)
+			{
+				set.add(arr[i]);
+			}
+		}
+		System.out.println(set);
+		sc.close();
+
+	}
+
+}
