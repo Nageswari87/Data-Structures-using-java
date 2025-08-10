@@ -1,0 +1,29 @@
+import java.util.*;
+public class Union {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter size of array:");
+		int n=sc.nextInt();
+		System.out.println("Enter array elements for a:");
+		Integer[] a=new Integer[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		System.out.println("Enter size of array:");
+		int m=sc.nextInt();
+		System.out.println("Enter array elements for b:");
+		Integer[] b=new Integer[m];
+		for(int i=0;i<m;i++)
+		{
+			b[i]=sc.nextInt();
+		}
+		Set<Integer>set=new TreeSet<>();
+		set.addAll(Arrays.asList(a));
+		set.addAll(Arrays.asList(b));
+    System.out.println(set);
+	}
+
+}
