@@ -1,0 +1,32 @@
+package DSA;
+
+import java.util.*;
+
+public class Intersection {
+public static void main(String args[])
+{
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter size of array:");
+	int n=sc.nextInt();
+	System.out.println("Enter array elements for a:");
+	Integer[] a=new Integer[n];
+	for(int i=0;i<n;i++)
+	{
+		a[i]=sc.nextInt();
+	}
+	System.out.println("Enter size of array:");
+	int m=sc.nextInt();
+	System.out.println("Enter array elements for b:");
+	Integer[] b=new Integer[m];
+	for(int i=0;i<m;i++)
+	{
+		b[i]=sc.nextInt();
+	}
+	Set<Integer>setA=new TreeSet<>(Arrays.asList(a));
+	Set<Integer>setB=new TreeSet<>(Arrays.asList(b));
+	setA.retainAll(setB);
+	System.out.println(setA);
+	
+	sc.close();
+}
+}
