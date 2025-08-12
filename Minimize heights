@@ -1,0 +1,33 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class MinimizeHeights {
+public static void main(String args[])
+{
+	Scanner sc=new Scanner(System.in);
+	
+	System.out.println("Enter the size of the array:");
+	int n=sc.nextInt();
+	int []arr=new int[n];
+	System.out.println("Enter array elements:");
+	for(int i=0;i<n;i++)
+	{
+		arr[i]=sc.nextInt();
+	}
+	System.out.println("Enter k Value:");
+	int k=sc.nextInt();
+	Arrays.sort(arr);
+	int ans=arr[n-1]-arr[0];
+	int small=arr[0]+k;
+	int large=arr[n-1]-k;
+	for(int i=0;i<n-1;i++)
+	{
+		int mini=Math.min(small,arr[i+1]-k);
+		int maxi=Math.max(large,arr[i]+k);
+		if (mini<0) continue;
+		ans=Math.min(ans, maxi-mini);
+		
+	}
+	sc.close();
+	System.out.println(ans);
+}
+}
