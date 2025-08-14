@@ -1,0 +1,61 @@
+import java.util.*;
+public class MergeTwoSortedArrays {
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of array 1 and 2:");
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+		System.out.println("Enter array1 elements:");
+		int arr1[]=new int[n];
+		int arr2[]=new int[m];
+		for(int i=0;i<n;i++)
+		{
+			arr1[i]=sc.nextInt();
+		}
+		System.out.println("Enter array2 elements:");
+		for(int i=0;i<m;i++)
+		{
+			arr2[i]=sc.nextInt();
+		}
+		int gap=(m+n+1)/2;
+		while(gap>0)
+		{
+			int i=0,j=gap;
+			while(j<n+m)
+			{
+				int a=(i<n)? arr1[i]:arr2[i-n];
+				int b=(j<n)?arr1[j]:arr2[j-n];
+				if(a>b)
+				{
+					if(i<n && j<n)
+					{
+						int temp=arr1[i];
+						arr1[i]=arr1[j];
+						arr1[j]=temp;
+					}
+					else if(i<n && j>=n)
+					{
+						int temp=arr1[i];
+						arr1[i]=arr2[j-n];
+						arr2[j-n]=temp;
+					}
+					else
+					{
+						int temp=arr2[i-n];
+						arr2[i-n]=arr2[j-n];
+						arr2[j-n]=temp;
+					}
+				}
+				i++;
+				j++;
+			}
+			if(gap==1) break;
+			gap=(gap+1)/2;
+		}
+		System.out.println(Arrays.toString(arr1));
+		System.out.println(Arrays.toString(arr2));
+		sc.close();
+	}
+
+}
